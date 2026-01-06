@@ -1,16 +1,21 @@
-# swiftsell_mobile
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+lib/
+├── core/                       # Global utilities, errors, generic usecases
+│   ├── error/                  # Failures & Exceptions
+│   ├── network/                # Network info checkers
+│   └── usecases/               # Base UseCase class
+├── features/
+│   └── [feature_name]/         # e.g., 'inventory', 'auth'
+│       ├── data/               # The "How" (Implementation)
+│       │   ├── datasources/    # Remote (Firebase) & Local data sources
+│       │   ├── models/         # Data Transfer Objects (DTOs), json parsing
+│       │   └── repositories/   # Implementation of Domain repositories
+│       ├── domain/             # The "What" (Business Logic - Pure Dart)
+│       │   ├── entities/       # Core business objects
+│       │   ├── repositories/   # Abstract contracts (Interfaces)
+│       │   └── usecases/       # Specific actions (e.g., GetItems, AddItem)
+│       └── presentation/       # The "Show" (UI & State)
+│           ├── bloc/           # Bloc/Cubit files
+│           ├── pages/          # Full screens
+│           └── widgets/        # Reusable feature-specific widgets
+├── injection_container.dart    # Dependency Injection setup (GetIt)
+└── main.dart
