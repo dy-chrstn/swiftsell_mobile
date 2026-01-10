@@ -4,6 +4,7 @@ import 'package:swiftsell_mobile/common/tabs/home.tab.dart';
 import 'package:swiftsell_mobile/common/tabs/notes.tab.dart';
 import 'package:swiftsell_mobile/common/tabs/settings.tab.dart';
 import 'package:swiftsell_mobile/config/routes/app_shell.dart';
+import 'package:swiftsell_mobile/features/products/presentation/screens/add_product_form.screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -34,6 +35,12 @@ final router = GoRouter(
           builder: (context, state) => SettingsTab(),
         ),
       ],
+    ),
+
+    GoRoute(
+      path: '/add-product',
+      name: AddProductFormScreen.routeName,
+      builder: (context, state) => AddProductFormScreen(),
     ),
   ],
 );
