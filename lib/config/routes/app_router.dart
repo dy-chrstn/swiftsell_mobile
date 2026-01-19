@@ -4,6 +4,8 @@ import 'package:swiftsell_mobile/common/tabs/home.tab.dart';
 import 'package:swiftsell_mobile/common/tabs/notes.tab.dart';
 import 'package:swiftsell_mobile/common/tabs/settings.tab.dart';
 import 'package:swiftsell_mobile/config/routes/app_shell.dart';
+import 'package:swiftsell_mobile/features/auth/presentation/screens/login.screen.dart';
+import 'package:swiftsell_mobile/features/auth/presentation/screens/sign_up.screen.dart';
 import 'package:swiftsell_mobile/features/products/presentation/screens/add_product_form.screen.dart';
 import 'package:swiftsell_mobile/features/products/presentation/screens/product_view.screen.dart';
 
@@ -12,6 +14,7 @@ final _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
+  initialLocation: '/login',
   routes: [
     ShellRoute(
       navigatorKey: _shellNavigatorKey,
@@ -36,6 +39,18 @@ final router = GoRouter(
           builder: (context, state) => SettingsTab(),
         ),
       ],
+    ),
+
+    /// Auth
+    GoRoute(
+      path: '/login',
+      name: LoginScreen.routeName,
+      builder: (context, state) => LoginScreen(),
+    ),
+    GoRoute(
+      path: '/sign-up',
+      name: SignUpScreen.routeName,
+      builder: (context, state) => SignUpScreen(),
     ),
 
     GoRoute(
