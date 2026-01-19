@@ -3,6 +3,7 @@ import 'package:swiftsell_mobile/config/routes/app_router.dart';
 import 'package:swiftsell_mobile/config/theme/app_theme.dart';
 
 void main() {
+  print('Restarted');
   runApp(const MyApp());
 }
 

@@ -3,6 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:swiftsell_mobile/common/constants/strings.dart';
 import 'package:swiftsell_mobile/features/products/presentation/screens/add_product_form.screen.dart';
+import 'package:swiftsell_mobile/features/products/presentation/screens/product_view.screen.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -71,28 +72,31 @@ class _HomeTabState extends State<HomeTab> {
             itemBuilder: (context, index) {
               return Card.outlined(
                 margin: .zero,
-                child: Column(
-                  crossAxisAlignment: .stretch,
-                  spacing: 8,
-                  children: [
-                    Image.network(
-                      mockImage,
-                      fit: .cover,
-                      cacheHeight: 150,
-                    ),
-                    Padding(
-                      padding:.symmetric(horizontal: 16),
-                      child: Column(
-                        spacing: 8,
-                        crossAxisAlignment: .stretch,
-                        children: [
-                          Text('Product $index'),
-                          Text('This is a product'),
-                        ],
+                child: InkWell(
+                  onTap: () => context.pushNamed(ProductViewScreen.routeName),
+                  child: Column(
+                    crossAxisAlignment: .stretch,
+                    spacing: 8,
+                    children: [
+                      Image.network(
+                        mockImage,
+                        fit: .cover,
+                        cacheHeight: 150,
                       ),
-                    ),
-                    SizedBox.shrink(),
-                  ],
+                      Padding(
+                        padding:.symmetric(horizontal: 16),
+                        child: Column(
+                          spacing: 8,
+                          crossAxisAlignment: .stretch,
+                          children: [
+                            Text('Product $index'),
+                            Text('This is a product'),
+                          ],
+                        ),
+                      ),
+                      SizedBox.shrink(),
+                    ],
+                  ),
                 ),
               );
             },
