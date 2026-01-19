@@ -12,6 +12,7 @@ class CustomFieldWidget extends StatefulWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.isReadOnly,
+    this.isPassword,
   });
 
   final TextEditingController? controller;
@@ -23,6 +24,7 @@ class CustomFieldWidget extends StatefulWidget {
   final int? maxLines;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final bool? isPassword;
 
   @override
   State<CustomFieldWidget> createState() => _CustomFieldWidgetState();
@@ -34,6 +36,7 @@ class _CustomFieldWidgetState extends State<CustomFieldWidget> {
     return TextFormField(
       controller: widget.controller,
       readOnly: widget.isReadOnly ?? false,
+      obscureText: widget.isPassword ?? false,
       decoration: InputDecoration(
         labelText: widget.labelText,
         hintText: widget.hintText,
